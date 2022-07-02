@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, abort
 from cms.admin.models import Type, Content, Setting, User
 
-admin_bp = Blueprint('admin', , url_prefix='/admin')
+admin_bp = Blueprint('admin', , url_prefix='/admin', template_folder=templates)
 
 @admin.route('/admin/', defaults={'type': 'page'})
 @admin.route('/admin/<type>')
