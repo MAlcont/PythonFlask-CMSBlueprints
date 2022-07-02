@@ -1,14 +1,14 @@
 from flask import Flask, render_template, abort
 
 from cms.admin.models import Type, Content, Setting, User, db
-from admin.Blueprint import admin_bp
+from cms.admin import admin_bp
 
 ## Application Configuration
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}/{}'.format(app.root_path, 'content.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'b2de7FkqvkMyqzNFzxCkgnPKIGP6i4Rc'
-app.init_app(db)
+db.init_app(app)
 app.register_blueprint(admin_bp)
 #!
 
