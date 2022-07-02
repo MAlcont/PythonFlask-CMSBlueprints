@@ -20,14 +20,19 @@
         <div class="field">
           <label class="label">Slug</label>
           <div class="control">
-          < type="text" class="input" name="slug">
+          <input type="text" class="input" name="slug">
            </div>
         </div>
         <div class="field">
           <label class="label">Type</label>
           <div class="control">
             <div class="select">
-            </div>
+              <select name="type_id">
+            {% for type in types %}
+                <option value="{{ type.id }}" {{ 'selected' if type.name ==type.name> }}>{{type.name}}</option>
+                {% endfor %}
+            </select">
+              </div>
           </div>
         </div>
         <div class="field">
