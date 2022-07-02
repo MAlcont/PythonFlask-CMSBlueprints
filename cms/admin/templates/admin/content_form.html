@@ -43,8 +43,10 @@
         </div>
         <div class="field is-grouped">
           <div class="control">
+            <input type="submit" class="button is-link" value="Submit">
           </div>
           <div class="control">
+            <a class="button is-text" href="{{ url_for('admin.content, type=type_name) }}">Cancel</a>
           </div>
         </div>
       </form>
