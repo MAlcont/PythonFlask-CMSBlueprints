@@ -28,11 +28,11 @@
           <div class="control">
             <div class="select">
               <select name="type_id">
-            {% for type in types %}
-                <option value="{{ type.id }}" {{ 'selected' if type.name ==type.name }}>{{type.name}}</option>
+                {% for type in types %}
+                  <option value="{{ type.id }}" {{ 'selected' if type.name == type_name }}>{{type.name}}</option>
                 {% endfor %}
-            </select>
-              </div>
+              </select>
+            </div>
           </div>
         </div>
         <div class="field">
