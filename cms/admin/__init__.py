@@ -57,6 +57,21 @@ def edit(id):
     type = Type.query.get(content.type_id)ù
     types = Type.query.all()
 
+    if request.method == 'POST':
+        content.title = request.form['title']
+        content.slug = request.form['slug']
+        content.type_id = request.form['type_id']
+        content.body = request.form['body']
+        content.updated_at = datetime.utcnow()
+        error = None
+        if not request.form['title']:
+            error = 'Title required'
+        if error is None:
+            db.session.commit()
+            return redirect (url_for('admin.content', type=type.name))
+        flash(error)
+
+
     return render_template('admin/content_form.html', types = types, title = 'Edit', item_title=content.title, slug = content.slug, type_name = type.name, type_id = content.type_id, body = content.body)
 
 
