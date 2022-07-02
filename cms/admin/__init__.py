@@ -51,3 +51,12 @@ def settings():
     settings = Setting.query.all()
     return render_template('admin/settings.html', title='Settings', settings=settings)
 
+@admin_bp.route('/edit/<id>', methods=("GET", "POST"))
+def edit(id):
+    content = Content.query.get_or_404(id)
+    type = Type.query.get(content.type_id)ù
+    types = Type.query.all()
+
+    return render_template('admin/content_form.html', types = types, title = 'Edit', item_title=content.title, slug = content.slug, type_name = type.name, type_id = content.type_id, body = content.body)
+
+
