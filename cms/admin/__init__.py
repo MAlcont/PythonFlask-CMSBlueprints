@@ -16,7 +16,7 @@ def content(type):
     else:
         abort(404)
 
-@admin_bp.route('/create/<type>', methods="GET", "POST")
+@admin_bp.route('/create/<type>', methods=("GET", "POST"))
 def create(type):
     if requested_type(type):
         if request.method == "POST":
